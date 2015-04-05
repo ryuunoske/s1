@@ -1,0 +1,19 @@
+.container
+	- if @tasks.empty?
+		%span.text-warning No Tasks Found
+	- else
+		%table.table.table-hover.table-bordered
+			%thead
+				%tr
+					%th Titale
+					%th Created at
+					%th Completed
+					%th Completed On
+			%tbody
+				- @tasks.each do |task|
+					%tr
+						%td
+							%strong= task.title
+						%td.text-info= task.created_at
+						%td.text-success= task.completed
+						%td.text-success= task.completed_on

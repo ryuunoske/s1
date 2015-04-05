@@ -1,0 +1,32 @@
+- if @tasks.empty?
+	%span.text-warning No Tasks Found
+- else
+	%table.table.table-hover.table-bordered
+		%thead
+			%tr
+				%th Titale
+				%th Created at
+				%th Completed
+				%th Completed On
+				%th Actions
+		%tbody
+			- @tasks.each do |task|
+				%tr
+					%td
+						%strong= task.title
+					%td.text-info= task.created_at
+					%td.text-success
+						- if task.completed
+							Yes
+						- else
+							No
+					%td.text-success
+						= task.completed_on
+					%td
+						= link_to task_path(task), class: 'btn btn-success' do
+							%i.glyphicon.glyphicon-check
+						
+						= link_to edit_task_path(task), class: 'btn btn-primary', 'data-toggle' => 'modal', 'data-target' => '#modal' do
+							%i.glyphicon.glyphicon-edit
+						= link_to task_path(task), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } do
+							%i.glyphicon.glyphicon-remove

@@ -1,0 +1,17 @@
+%h1 Success
+%p 
+	%strong Title
+	= @task.title
+%p
+	%strong created:
+	= @task.created_at
+%p
+	- if @task.completed == true
+		%strong Completed:
+		Yes
+	- else
+		%strong Completed:
+		No
+%p
+	%strong Completed On:
+	= @task.completed_on

@@ -1,0 +1,33 @@
+- if tasks.empty?
+	%span.text-warning No Tasks Found
+- else
+	%table.table.table-hover.table-bordered
+		%thead
+			%tr
+				%th Titale
+				%th Created at
+				%th Completed
+				%th Completed On
+				%th{:colspan => '3'}
+		%tbody
+			- tasks.each do |task|
+				%tr
+					%td
+						%strong= task.title
+					%td.text-info= task.created_at
+					%td.text-success
+						- if task.completed
+							puts Yes
+						- else
+							puts No
+					%td.text-success
+						= task.completed_on
+					%td
+						= link_to task_path(task)
+						%i.glyphicon.glyphicon-eye-open
+					%td
+						= link_to edit_task_path(task)
+							%i.icon-edit
+					%td
+						= link_to task_path(task), method: :delete, data: { confirm: 'Are you sure?' }
+							%i.icon-remove

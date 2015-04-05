@@ -1,0 +1,7 @@
+- 2.times do
+	%br
+#task-list.container
+	= render 'tasks/task_list'
+#modal.modal.fade{tabindex: "-1", role: "dialog", 'aria-labelledby' => "New Task", 'aria-hidden' => "true"}
+	.modal-dialog
+		.modal-content
