@@ -35,7 +35,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:ryuunoske/s1.git"
+    "url": "git@github.com/ryuunoske/s1.git"
   },
   "author": "ryuunoske",
   "license": ""
